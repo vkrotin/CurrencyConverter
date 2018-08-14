@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CyrrencyController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Cyrrency" id="BYZ-38-t0r" userLabel="CyrrencyController" customClass="ViewController" customModule="CurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atd-db-eQY" customClass="CurrencyButton" customModule="CurrencyConverter" customModuleProvider="target">
+                                <rect key="frame" x="16" y="100" width="343" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="A9Y-2n-d0o"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaduis">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="currencyText" value="1"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonType">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PyS-IS-TmB"/>
+                                </connections>
+                            </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2m-ay-9Mo" customClass="CurrencyButton" customModule="CurrencyConverter" customModuleProvider="target">
+                                <rect key="frame" x="16" y="189" width="343" height="54"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="RUB"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaduis">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonType">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="v7z-pl-kzH"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 USD = 0.83568 EUR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K90-rK-u6g">
+                                <rect key="frame" x="0.0" y="295" width="375" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="r2r-RU-WA0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.074509803920000006" green="0.76078431369999999" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="atd-db-eQY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0a9-ff-jII"/>
+                            <constraint firstItem="H2m-ay-9Mo" firstAttribute="leading" secondItem="atd-db-eQY" secondAttribute="leading" id="19k-3w-8C8"/>
+                            <constraint firstItem="H2m-ay-9Mo" firstAttribute="height" secondItem="atd-db-eQY" secondAttribute="height" id="3kh-WV-fni"/>
+                            <constraint firstItem="H2m-ay-9Mo" firstAttribute="top" secondItem="atd-db-eQY" secondAttribute="bottom" constant="35" id="FH6-yf-psz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="atd-db-eQY" secondAttribute="trailing" constant="16" id="M6a-Gv-apN"/>
+                            <constraint firstItem="K90-rK-u6g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nh3-Ug-H36"/>
+                            <constraint firstItem="H2m-ay-9Mo" firstAttribute="trailing" secondItem="atd-db-eQY" secondAttribute="trailing" id="XVp-Aa-DVW"/>
+                            <constraint firstItem="atd-db-eQY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="cf1-9A-pWN"/>
+                            <constraint firstItem="K90-rK-u6g" firstAttribute="top" secondItem="H2m-ay-9Mo" secondAttribute="bottom" constant="52" id="d7X-CA-SPV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K90-rK-u6g" secondAttribute="trailing" id="liJ-vD-9Wc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Iym-yv-DxX" appends="YES" id="sKH-sA-nZ8"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="fromButton" destination="atd-db-eQY" id="H8z-zC-z6I"/>
+                        <outlet property="rateLabel" destination="K90-rK-u6g" id="JgB-0Q-9kP"/>
+                        <outlet property="toButton" destination="H2m-ay-9Mo" id="Y8P-3T-W6x"/>
+                        <segue destination="8i9-8a-LF3" kind="presentation" identifier="currencyList" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="VF9-IQ-Q8n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Iym-yv-DxX">
+                    <connections>
+                        <action selector="tapOnView:" destination="BYZ-38-t0r" id="i4O-EN-JND"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+        </scene>
+        <!--Currency Picker Controller-->
+        <scene sceneID="NM0-6t-lS5">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="8i9-8a-LF3" customClass="CurrencyPickerController" customModule="CurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="khe-f3-F29">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CS-e2-eka">
+                                <rect key="frame" x="0.0" y="447" width="375" height="220"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKl-Ka-1ud">
+                                        <rect key="frame" x="0.0" y="44" width="375" height="176"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="8i9-8a-LF3" id="rqh-sa-hfZ"/>
+                                            <outlet property="delegate" destination="8i9-8a-LF3" id="bfJ-e4-gSF"/>
+                                        </connections>
+                                    </pickerView>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9y-WX-hQ8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="3qU-Gy-eO9"/>
+                                        </constraints>
+                                        <items>
+                                            <barButtonItem title="Close" id="xH2-Lg-HX5">
+                                                <connections>
+                                                    <action selector="closeAction:" destination="8i9-8a-LF3" id="2dO-PZ-n78"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="H5O-dk-ehG"/>
+                                            <barButtonItem enabled="NO" title="Title" id="Td5-bk-UjO">
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="Oyy-Zi-fJ0"/>
+                                            <barButtonItem title="Apply" id="Hit-pD-wCv">
+                                                <connections>
+                                                    <action selector="applyAction:" destination="8i9-8a-LF3" id="1dr-3S-Tub"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                        <color key="tintColor" red="0.074509803920000006" green="0.76078431369999999" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </toolbar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="jKl-Ka-1ud" firstAttribute="top" secondItem="x9y-WX-hQ8" secondAttribute="bottom" id="6do-f9-wxg"/>
+                                    <constraint firstAttribute="bottom" secondItem="jKl-Ka-1ud" secondAttribute="bottom" id="95r-U3-Pnt"/>
+                                    <constraint firstItem="x9y-WX-hQ8" firstAttribute="leading" secondItem="8CS-e2-eka" secondAttribute="leading" id="EAT-oK-cim"/>
+                                    <constraint firstAttribute="trailing" secondItem="x9y-WX-hQ8" secondAttribute="trailing" id="Yhd-gZ-lqK"/>
+                                    <constraint firstAttribute="height" constant="220" id="dAt-pY-T3q"/>
+                                    <constraint firstItem="x9y-WX-hQ8" firstAttribute="top" secondItem="8CS-e2-eka" secondAttribute="top" id="nHV-Mg-SYM"/>
+                                    <constraint firstAttribute="trailing" secondItem="jKl-Ka-1ud" secondAttribute="trailing" id="okl-mw-Y4Y"/>
+                                    <constraint firstItem="jKl-Ka-1ud" firstAttribute="leading" secondItem="8CS-e2-eka" secondAttribute="leading" id="z56-Fc-O0l"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="8CS-e2-eka" secondAttribute="bottom" id="IN3-lV-sWP"/>
+                            <constraint firstItem="8CS-e2-eka" firstAttribute="leading" secondItem="T7c-as-tp0" secondAttribute="leading" id="KWY-y1-Ixa"/>
+                            <constraint firstItem="8CS-e2-eka" firstAttribute="trailing" secondItem="T7c-as-tp0" secondAttribute="trailing" id="jXw-vY-I6E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T7c-as-tp0"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="8iv-rH-n66" appends="YES" id="jDc-7g-iAc"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="itemTitle" destination="Td5-bk-UjO" id="mAk-om-oWx"/>
+                        <outlet property="modalBottomConstraint" destination="IN3-lV-sWP" id="Ezc-EZ-Haf"/>
+                        <outlet property="modalView" destination="8CS-e2-eka" id="529-in-Bga"/>
+                        <outlet property="pickerView" destination="jKl-Ka-1ud" id="HqB-ZE-Bj9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJP-6b-Twr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="8iv-rH-n66">
+                    <connections>
+                        <action selector="changeGestureAction:" destination="8i9-8a-LF3" id="fF9-Zu-TK5"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="853.60000000000002" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>
