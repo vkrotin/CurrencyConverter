@@ -5,5 +5,5 @@
 
 This app is demonstrate simple conversion of currencies.
 
-![](screens/s1.png) ![](screens/s2.png)
+![](screens/s1.png) ![](screens/s2.png) ![](screens/s3.png)
 
