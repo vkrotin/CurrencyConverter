@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atd-db-eQY" customClass="CurrencyButton" customModule="CurrencyConverter" customModuleProvider="target">
-                                <rect key="frame" x="16" y="100" width="343" height="54"/>
+                                <rect key="frame" x="16" y="80" width="343" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="A9Y-2n-d0o"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 </connections>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2m-ay-9Mo" customClass="CurrencyButton" customModule="CurrencyConverter" customModuleProvider="target">
-                                <rect key="frame" x="16" y="189" width="343" height="54"/>
+                                <rect key="frame" x="16" y="169" width="343" height="54"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="buttonText" value="RUB"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRaduis">
@@ -52,7 +52,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 USD = 0.83568 EUR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K90-rK-u6g">
-                                <rect key="frame" x="0.0" y="295" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="275" width="375" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="r2r-RU-WA0"/>
@@ -61,6 +61,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="bottomRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="4ku-Wj-yaT">
+                                <rect key="frame" x="0.0" y="452" width="367" height="190"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="Q59-Sh-XWj"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.074509803920000006" green="0.76078431369999999" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -71,10 +77,15 @@
                             <constraint firstItem="H2m-ay-9Mo" firstAttribute="top" secondItem="atd-db-eQY" secondAttribute="bottom" constant="35" id="FH6-yf-psz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="atd-db-eQY" secondAttribute="trailing" constant="16" id="M6a-Gv-apN"/>
                             <constraint firstItem="K90-rK-u6g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nh3-Ug-H36"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4ku-Wj-yaT" secondAttribute="bottom" constant="25" id="P8i-XG-PE0"/>
                             <constraint firstItem="H2m-ay-9Mo" firstAttribute="trailing" secondItem="atd-db-eQY" secondAttribute="trailing" id="XVp-Aa-DVW"/>
-                            <constraint firstItem="atd-db-eQY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="cf1-9A-pWN"/>
+                            <constraint firstItem="atd-db-eQY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="cf1-9A-pWN"/>
                             <constraint firstItem="K90-rK-u6g" firstAttribute="top" secondItem="H2m-ay-9Mo" secondAttribute="bottom" constant="52" id="d7X-CA-SPV"/>
+                            <constraint firstItem="4ku-Wj-yaT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h7O-Dn-UQ7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K90-rK-u6g" secondAttribute="trailing" id="liJ-vD-9Wc"/>
+                            <constraint firstItem="4ku-Wj-yaT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-8" id="uW1-8t-PuU"/>
+                            <constraint firstItem="4ku-Wj-yaT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="K90-rK-u6g" secondAttribute="bottom" constant="25" id="uaM-df-Jnc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4ku-Wj-yaT" secondAttribute="bottom" priority="999" constant="25" id="xXO-Qc-2zA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -105,7 +116,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CS-e2-eka">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CS-e2-eka">
                                 <rect key="frame" x="0.0" y="447" width="375" height="220"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKl-Ka-1ud">
@@ -115,7 +126,7 @@
                                             <outlet property="delegate" destination="8i9-8a-LF3" id="bfJ-e4-gSF"/>
                                         </connections>
                                     </pickerView>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9y-WX-hQ8">
+                                    <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9y-WX-hQ8">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="3qU-Gy-eO9"/>
@@ -127,7 +138,7 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="H5O-dk-ehG"/>
-                                            <barButtonItem enabled="NO" title="Title" id="Td5-bk-UjO">
+                                            <barButtonItem enabled="NO" title="Title" style="done" id="Td5-bk-UjO">
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="Oyy-Zi-fJ0"/>
@@ -138,6 +149,7 @@
                                             </barButtonItem>
                                         </items>
                                         <color key="tintColor" red="0.074509803920000006" green="0.76078431369999999" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="barTintColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                                     </toolbar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,4 +195,7 @@
             <point key="canvasLocation" x="853.60000000000002" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="image" width="384" height="213"/>
+    </resources>
 </document>

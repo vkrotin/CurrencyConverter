@@ -16,7 +16,7 @@ protocol CurrencyPickerDelegate : class {
 
 class CurrencyPickerController: UIViewController {
     // MARK: Initialize
-    
+
     @IBOutlet weak var itemTitle: UIBarButtonItem!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var modalView: UIView!
@@ -35,6 +35,10 @@ class CurrencyPickerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let radius:CGFloat = 12.0
+        modalView.layer.cornerRadius = radius
+        modalView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
         intitialConstraint = modalBottomConstraint.constant;
         currency?.ratio = 1
         

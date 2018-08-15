@@ -24,7 +24,7 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lea-4K-5IE">
                     <rect key="frame" x="295" y="0.0" width="60" height="60"/>
-                    <color key="backgroundColor" white="0.897216796875" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" red="0.87058823529411766" green="0.87058823529411766" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="60" id="Egb-5d-otd"/>
                         <constraint firstAttribute="width" secondItem="lea-4K-5IE" secondAttribute="height" multiplier="1:1" id="lZL-JW-YTq"/>

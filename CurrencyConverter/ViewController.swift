@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     //MARK: Initialize
-    
+
     @IBOutlet weak var fromButton: CurrencyButton!
     @IBOutlet weak var toButton: CurrencyButton!
     @IBOutlet weak var rateLabel: UILabel!
@@ -20,6 +20,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         fromButton.buttonText = currencyService.inputCurrency.shortName
         toButton.buttonText = currencyService.outputCurrency.shortName
