@@ -9,9 +9,10 @@
 import Foundation
 
 enum SaveType: String{
-    case kSavedInputValue = "CC.savedInputValue"
-    case kSavedInputCurrency = "CC.savedInputCurrency"
-    case kSavedOutputCurrency = "CC.savedOutputCurrency"
+    case kSavedInputValue = "ST.savedInputValue"
+    case kSavedInputCurrency = "ST.savedInputCurrency"
+    case kSavedOutputCurrency = "ST.savedOutputCurrency"
+    case kSavedAllCurrency = "ST.savedAllCurrency"
 }
 
 class StorageService {
@@ -30,6 +31,12 @@ class StorageService {
                 object = try? PropertyListDecoder().decode(Currency.self, from: data)
             }
             break
+        case .kSavedAllCurrency:
+            guard let data = UserDefaults.standard.value(forKey:saveType.rawValue) as? Data else{
+                break
+            }
+            object = try? PropertyListDecoder().decode([Currency].self, from: data)
+            break
         }
         return object
     }
@@ -44,6 +51,10 @@ class StorageService {
             guard let currency = value as? Currency else { return }
             UserDefaults.standard.set(try? PropertyListEncoder().encode(currency), forKey:saveType.rawValue)
             break
+        case .kSavedAllCurrency:
+            guard let array = value as? [Currency] else { return }
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(array), forKey: saveType.rawValue)
+            break
         }
         UserDefaults.standard.synchronize()
     }
@@ -53,7 +64,7 @@ class StorageService {
 extension StorageService {
     
     func saveAllCurrencies(with dict: [String: Any], completion: @escaping ([Currency]?, CurrencyError?) -> Swift.Void) {
-        var currencies = [Currency]()
+        var currencies =  [Currency]()
         
         guard let dictResults = dict["results"] as? [String: [String: String]], dictResults.count > 0 else{
             completion(nil, CurrencyError(description: "Currencies' data format is wrong"))
@@ -69,6 +80,8 @@ extension StorageService {
         
         let sortArray = currencies.sorted(by: {c1, c2 in
             return c1.fullName < c2.fullName})
+        
+        set(sortArray, .kSavedAllCurrency)
         
         completion(sortArray, nil)
     }

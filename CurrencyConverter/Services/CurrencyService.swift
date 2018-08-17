@@ -92,11 +92,12 @@ class CurrencyService{
     //MARK: Server methods
     
     func getAllCurrencies(_ completion: @escaping (Error?) -> Swift.Void) {
-        ServerService.sharedService.getRequestForType(type: .allCurrencies, completion: { [weak self] (object, error) in
+        serverService.getRequestForType(type: .allCurrencies, completion: { [weak self] (object, error) in
             guard let array = object as? [Currency] else{
                     DispatchQueue.main.async {
                         completion(error)
                     }
+                self?.currencies = self?.serverService.get(.kSavedAllCurrency) as! [Currency]
                     return
             }
             self?.currencies = array
@@ -120,7 +121,7 @@ class CurrencyService{
             }
         }
         
-        ServerService.sharedService.getRequestForType(type: .ratioCurrency(buffInputCSName, buffOutputCSName),
+        serverService.getRequestForType(type: .ratioCurrency(buffInputCSName, buffOutputCSName),
                                                       completion: {[weak self] (dict, error) in
             if error != nil {
                 DispatchQueue.main.async {

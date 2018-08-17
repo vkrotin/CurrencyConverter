@@ -48,7 +48,8 @@ class ViewController: UIViewController {
             control.delegate = self
             control.currencyArray = currencyService.currencies
             
-            guard let button = sender as? CurrencyButton, let mode = button.currencyMode else{
+            guard let button = sender as? CurrencyButton,
+                let mode = button.currencyMode else{
                     return
             }
             
