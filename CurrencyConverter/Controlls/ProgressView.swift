@@ -17,15 +17,19 @@ class ProgressView: XibView {
         set {}
     }
     
-    static func showProgress(view toView:UIView){
-        let pView = ProgressView.init(frame: toView.frame)
+    static func showProgress(view toView:UIView?){
+        guard let tView = toView else{
+            return
+        }
+        let pView = ProgressView.init(frame: tView.frame)
         pView.activityIndicator.startAnimating()
-        toView.addSubview(pView)
-        toView.bringSubview(toFront: pView)
+        tView.addSubview(pView)
+        tView.bringSubview(toFront: pView)
     }
     
-    static func hideProgress(view toView:UIView){
-        guard let pView = ProgressInView(forView: toView) else{
+    static func hideProgress(view toView:UIView?){
+        guard let tView = toView,
+            let pView = ProgressInView(forView: tView) else{
             return
         }
         

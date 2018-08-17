@@ -23,6 +23,9 @@
 		755C06BE21215D7100C6718B /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C06BD21215D7100C6718B /* StorageService.swift */; };
 		755C06C221215FAF00C6718B /* CUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C06C121215FAF00C6718B /* CUrl.swift */; };
 		755C06C421216BD500C6718B /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755C06C321216BD500C6718B /* CurrencyService.swift */; };
+		756178E92125AB5700149E4A /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756178E82125AB5700149E4A /* Box.swift */; };
+		75AE1CA62126A404001D5646 /* ViewCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE1CA52126A404001D5646 /* ViewCurrency.swift */; };
+		75AE1CA82126AABD001D5646 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE1CA72126AABD001D5646 /* UIAlertControllerExtension.swift */; };
 		75EAB108211DC75800B6EE8A /* CurrencyPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EAB107211DC75800B6EE8A /* CurrencyPickerController.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,9 @@
 		755C06BD21215D7100C6718B /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		755C06C121215FAF00C6718B /* CUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUrl.swift; sourceTree = "<group>"; };
 		755C06C321216BD500C6718B /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
+		756178E82125AB5700149E4A /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		75AE1CA52126A404001D5646 /* ViewCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCurrency.swift; sourceTree = "<group>"; };
+		75AE1CA72126AABD001D5646 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		75EAB107211DC75800B6EE8A /* CurrencyPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				755789C321205C0C001289D7 /* Currency.swift */,
+				75AE1CA52126A404001D5646 /* ViewCurrency.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				755BB2E02122EB5900485284 /* CurrencyTextField.swift */,
+				75AE1CA72126AABD001D5646 /* UIAlertControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -128,6 +136,7 @@
 				755C06BB21215D4D00C6718B /* ServerService.swift */,
 				755C06BD21215D7100C6718B /* StorageService.swift */,
 				755C06C321216BD500C6718B /* CurrencyService.swift */,
+				756178E82125AB5700149E4A /* Box.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -208,15 +217,18 @@
 				755C06C421216BD500C6718B /* CurrencyService.swift in Sources */,
 				755789C421205C0C001289D7 /* Currency.swift in Sources */,
 				75EAB108211DC75800B6EE8A /* CurrencyPickerController.swift in Sources */,
+				75AE1CA62126A404001D5646 /* ViewCurrency.swift in Sources */,
 				755C06BC21215D4D00C6718B /* ServerService.swift in Sources */,
 				755A3543211D6A91007F9F94 /* ViewController.swift in Sources */,
 				755A3554211D70DF007F9F94 /* CurrencyButton.swift in Sources */,
+				756178E92125AB5700149E4A /* Box.swift in Sources */,
 				755BB2E12122EB5900485284 /* CurrencyTextField.swift in Sources */,
 				755C06BE21215D7100C6718B /* StorageService.swift in Sources */,
 				755A3558211D7E46007F9F94 /* XibView.swift in Sources */,
 				755A3541211D6A91007F9F94 /* AppDelegate.swift in Sources */,
 				755C06C221215FAF00C6718B /* CUrl.swift in Sources */,
 				755BB2DD2122A85600485284 /* ProgressView.swift in Sources */,
+				75AE1CA82126AABD001D5646 /* UIAlertControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

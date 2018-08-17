@@ -29,8 +29,13 @@ class ViewController: UIViewController {
         toButton.currencyText = currencyService.update(input: fromButton.getCurrencyText())
       
         ProgressView.showProgress(view: self.view)
-        currencyService.getAllCurrencies({error in
-            ProgressView.hideProgress(view: self.view)
+        currencyService.getAllCurrencies({[weak self] error in
+            ProgressView.hideProgress(view: self?.view)
+            guard let err = error else{
+                return
+            }
+            let allert = UIAlertController.messageAlertController(title: "Warning", message: err.localizedDescription)
+            self?.present(allert, animated: true, completion: nil)
         })
     }
 
@@ -105,17 +110,19 @@ extension ViewController : CurrencyButtonDelegate, CurrencyPickerDelegate{
         self.setControllText(shortName: sender.shortName, type: bMode)
         self.currencyService.currencyMode = bMode
         self.currencyService.getOutputCurrencyRatio(newCurrency: sender, completion: {[weak self] error in
+            ProgressView.hideProgress(view: self?.view)
             guard let sself = self else{
                 return
             }
-            
-            ProgressView.hideProgress(view: sself.view)
-            if error != nil{
-                sself.setControllText(shortName: nil, type: bMode)
-            }else{
+            guard let err = error else{
                 sself.rateLabel.text = sself.currencyService.rateText
                 sself.toButton.currencyText = sself.currencyService.update(input: sself.fromButton.getCurrencyText())
+                return
             }
+            sself.setControllText(shortName: nil, type: bMode)
+           
+            let allert = UIAlertController.messageAlertController(title: "Warning", message: err.description)
+            sself.present(allert, animated: true, completion: nil)
         })
     }
     

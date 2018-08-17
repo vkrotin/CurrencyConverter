@@ -93,14 +93,13 @@ class CurrencyService{
     
     func getAllCurrencies(_ completion: @escaping (Error?) -> Swift.Void) {
         ServerService.sharedService.getRequestForType(type: .allCurrencies, completion: { [weak self] (object, error) in
-            guard let sself = self,
-                let array = object as? [Currency] else{
+            guard let array = object as? [Currency] else{
                     DispatchQueue.main.async {
                         completion(error)
                     }
                     return
             }
-            sself.currencies = array
+            self?.currencies = array
             
             DispatchQueue.main.async {
                 completion(nil)
