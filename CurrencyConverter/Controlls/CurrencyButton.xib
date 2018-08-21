@@ -40,7 +40,7 @@
                     <rect key="frame" x="10" y="12.5" width="285" height="36"/>
                     <color key="textColor" red="0.074509803920000006" green="0.76078431369999999" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
-                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="WfD-qo-3Fh"/>
                     </connections>

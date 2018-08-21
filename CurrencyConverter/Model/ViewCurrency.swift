@@ -10,7 +10,7 @@ import Foundation
 
 
 struct ViewCurrency {
-    var value:String?
-    var name:String?
+    var value:String = ""
+    var name:String = ""
     
 }
