@@ -23,9 +23,14 @@ class CurrencyPickerController: UIViewController {
     @IBOutlet weak var modalBottomConstraint: NSLayoutConstraint!
     
     weak var delegate: CurrencyPickerDelegate?
+
+   // var currency:Currency?
+    //var buttonMode:CurrencyMode?
     
-    var currency:Currency?
-    var buttonMode:CurrencyMode?
+    var listenerBox:Box<CurrBox?>?
+    
+    var currBox:CurrBox?
+    
     
     var initialTouchPoint = CGPoint(x: 0,y: 0)
     var intitialConstraint:CGFloat = 0
@@ -40,13 +45,13 @@ class CurrencyPickerController: UIViewController {
         modalView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         intitialConstraint = modalBottomConstraint.constant;
-        currency?.ratio = 1
+        currBox?.currency?.ratio = 1
         
         showModalView(false, false)
         
-        itemTitle.title = currency?.fullName
+        itemTitle.title = currBox?.currency?.fullName
         
-        guard let indexRow = currencyArray?.index(of: currency!) else{
+        guard let indexRow = currencyArray?.index(of: currBox!.currency!) else{
             return
         }
         pickerView.selectRow(indexRow, inComponent: 0, animated: false)   
@@ -70,7 +75,15 @@ class CurrencyPickerController: UIViewController {
             return
         }
         
-        self.delegate?.currencyPickerSelected(sender: object, bMode: buttonMode!)
+        guard var box = currBox, let listener = listenerBox else {
+            return
+        }
+        
+        //box.buttonMode = buttonMode!
+        box.currency = object
+        listener.value = box
+        
+       // self.delegate?.currencyPickerSelected(sender: object, bMode: buttonMode!)
         showModalView(false, true)
     }
     
@@ -130,7 +143,7 @@ extension CurrencyPickerController : UIPickerViewDataSource, UIPickerViewDelegat
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return currencyArray!.count
     }
@@ -138,7 +151,6 @@ extension CurrencyPickerController : UIPickerViewDataSource, UIPickerViewDelegat
     //MARK: UIPickerViewDelegate
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
         return currencyArray![row].fullName
     }
 }

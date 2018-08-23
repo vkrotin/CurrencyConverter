@@ -9,14 +9,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-    //MARK: Initialize
 
+    //MARK: Parameters
+    
     @IBOutlet weak var fromButton: CurrencyButton!
     @IBOutlet weak var toButton: CurrencyButton!
     @IBOutlet weak var rateLabel: UILabel!
     
     let currencyService = CurrencyService()
 
+    
+    //MARK: Initialize
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +48,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "currencyList",
             let control = segue.destination as? CurrencyPickerController {
-            control.delegate = self
+            //control.delegate = self
             control.currencyArray = currencyService.currencies
             
             guard let button = sender as? CurrencyButton,
@@ -53,24 +56,40 @@ class ViewController: UIViewController {
                     return
             }
             
-            control.buttonMode = mode
-            
-            switch mode{
-            case .inputCurrencyChanging:
-                control.currency = currencyService.inputCurrency
-                break
+            control.currBox = CurrBox.init(currencyService.currency(mode), mode)
+            control.listenerBox = Box(nil)
+            control.listenerBox?.bind{[weak self] box in
+                guard let gBox = box else{
+                    return
+                }
                 
-            case .outputCurrencyChanging:
-                control.currency = currencyService.outputCurrency
-                break
+                ProgressView.showProgress(view: self?.view)
+                self?.setControllText(shortName: gBox.shortName, type: gBox.buttonMode!)
+                self?.currencyService.currencyMode = gBox.buttonMode!
+                self?.currencyService.getOutputCurrencyRatio(newCurrency: gBox.currency, completion: {[weak self] error in
+                    ProgressView.hideProgress(view: self?.view)
+                    guard let sself = self else{
+                        return
+                    }
+                    guard let err = error else{
+                        sself.rateLabel.text = sself.currencyService.rateText
+                        sself.toButton.currencyText = sself.currencyService.update(input: sself.fromButton.getCurrencyText())
+                        return
+                    }
+                    sself.setControllText(shortName: nil, type: gBox.buttonMode!)
+                    
+                    let allert = UIAlertController.messageAlertController(title: "Warning", message: err.description)
+                    sself.present(allert, animated: true, completion: nil)
+                })
             }
-
         }
     }
 }
 
-extension ViewController : CurrencyButtonDelegate, CurrencyPickerDelegate{
-    //MARK: CyrrencyButton and CurrencyPicker delegate
+
+//MARK: CyrrencyButton delegate
+
+extension ViewController : CurrencyButtonDelegate{
     
     func currencyChangeText(sender: CurrencyButton, text: String) {
         guard let mode = sender.currencyMode else{
@@ -103,28 +122,6 @@ extension ViewController : CurrencyButtonDelegate, CurrencyPickerDelegate{
     
     func currencyButtonTouch(sender: CurrencyButton) {
         performSegue(withIdentifier: "currencyList", sender: sender)
-    }
-    
-    func currencyPickerSelected(sender: Currency, bMode: CurrencyMode) {
-        ProgressView.showProgress(view: self.view)
-        
-        self.setControllText(shortName: sender.shortName, type: bMode)
-        self.currencyService.currencyMode = bMode
-        self.currencyService.getOutputCurrencyRatio(newCurrency: sender, completion: {[weak self] error in
-            ProgressView.hideProgress(view: self?.view)
-            guard let sself = self else{
-                return
-            }
-            guard let err = error else{
-                sself.rateLabel.text = sself.currencyService.rateText
-                sself.toButton.currencyText = sself.currencyService.update(input: sself.fromButton.getCurrencyText())
-                return
-            }
-            sself.setControllText(shortName: nil, type: bMode)
-           
-            let allert = UIAlertController.messageAlertController(title: "Warning", message: err.description)
-            sself.present(allert, animated: true, completion: nil)
-        })
     }
     
     //MARK: action and methods

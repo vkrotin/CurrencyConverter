@@ -50,6 +50,18 @@ class CurrencyService{
             return value
         }
     }
+    
+    func currency(_ mode: CurrencyMode) -> Currency {
+        switch mode{
+        case .inputCurrencyChanging:
+            return inputCurrency
+            
+        case .outputCurrencyChanging:
+            return outputCurrency
+        }
+    }
+    
+    
     var inputCurrency: Currency {
         didSet {
             if (oldValue != inputCurrency) {

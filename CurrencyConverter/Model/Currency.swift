@@ -23,13 +23,11 @@ class Currency: Codable,  Equatable{
     }
     
     static func defaultCurrency1() -> Currency {
-        let currency = self.init("United States Dollar", "USD", "$", 1)
-        return currency
+        return Currency("United States Dollar", "USD", "$", 1)
     }
     
     static func defaultCurrency2() -> Currency {
-        let currency = self.init("Euro", "EUR", "€", 0.87)
-        return currency
+        return Currency("Euro", "EUR", "€", 0.87)
     }
     
     static func == (lhs: Currency, rhs: Currency) -> Bool {

@@ -26,6 +26,7 @@
 		756178E92125AB5700149E4A /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756178E82125AB5700149E4A /* Box.swift */; };
 		75AE1CA62126A404001D5646 /* ViewCurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE1CA52126A404001D5646 /* ViewCurrency.swift */; };
 		75AE1CA82126AABD001D5646 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AE1CA72126AABD001D5646 /* UIAlertControllerExtension.swift */; };
+		75BC4EA3212C03E700649085 /* CurrBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BC4EA2212C03E700649085 /* CurrBox.swift */; };
 		75EAB108211DC75800B6EE8A /* CurrencyPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EAB107211DC75800B6EE8A /* CurrencyPickerController.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		756178E82125AB5700149E4A /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		75AE1CA52126A404001D5646 /* ViewCurrency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCurrency.swift; sourceTree = "<group>"; };
 		75AE1CA72126AABD001D5646 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
+		75BC4EA2212C03E700649085 /* CurrBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrBox.swift; sourceTree = "<group>"; };
 		75EAB107211DC75800B6EE8A /* CurrencyPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyPickerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 			children = (
 				755789C321205C0C001289D7 /* Currency.swift */,
 				75AE1CA52126A404001D5646 /* ViewCurrency.swift */,
+				75BC4EA2212C03E700649085 /* CurrBox.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				755A3558211D7E46007F9F94 /* XibView.swift in Sources */,
 				755A3541211D6A91007F9F94 /* AppDelegate.swift in Sources */,
 				755C06C221215FAF00C6718B /* CUrl.swift in Sources */,
+				75BC4EA3212C03E700649085 /* CurrBox.swift in Sources */,
 				755BB2DD2122A85600485284 /* ProgressView.swift in Sources */,
 				75AE1CA82126AABD001D5646 /* UIAlertControllerExtension.swift in Sources */,
 			);
