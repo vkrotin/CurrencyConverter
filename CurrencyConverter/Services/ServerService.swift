@@ -43,6 +43,10 @@ class ServerService : StorageService{
             }
             do {
                 let json = try JSONSerialization.jsonObject(with: dataResponce, options: []) as! [String: AnyObject]
+                if let errorString = json["error"], let errorCode = json["status"] as? Int {
+                    let error = NSError(domain: "me", code: errorCode, userInfo: [NSLocalizedDescriptionKey : errorString])
+                    completion(nil, error)
+                }
                 completion(json, nil)
                 return
             } catch let error as NSError {

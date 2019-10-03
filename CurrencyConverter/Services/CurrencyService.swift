@@ -105,6 +105,15 @@ class CurrencyService{
     
     func getAllCurrencies(_ completion: @escaping (Error?) -> Swift.Void) {
         serverService.getRequestForType(type: .allCurrencies, completion: { [weak self] (object, error) in
+            
+            
+            if let _error = error {
+                DispatchQueue.main.async {
+                    completion(_error)
+                }
+                return
+            }
+     
             guard let array = object as? [Currency] else{
                     DispatchQueue.main.async {
                         completion(error)

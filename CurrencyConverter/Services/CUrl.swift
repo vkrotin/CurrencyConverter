@@ -13,11 +13,12 @@ enum CUrl{
     case ratioCurrency(String, String)
     
     func getString() -> String {
+        let key = "61535f282ade201fdaab"
         switch self {
         case .allCurrencies:
-            return "https://free.currencyconverterapi.com/api/v5/currencies"
+            return "\(getServerUrl())/currencies?apiKey=\(key)"
         case .ratioCurrency(let inputKey, let outputKey):
-            return "https://free.currencyconverterapi.com/api/v5/convert?compact=y&q=" + inputKey + "_" + outputKey
+            return "\(getServerUrl())/convert?compact=y&q=\(inputKey)_\(outputKey)&apiKey=\(key)"
         }
     }
     
@@ -27,5 +28,9 @@ enum CUrl{
     
     static func == (a: CUrl, b: CUrl) -> Bool {
         return a.getString() == b.getString()
+    }
+    
+    func getServerUrl() -> String {
+        return "https://free.currconv.com/api/v7"
     }
 }
